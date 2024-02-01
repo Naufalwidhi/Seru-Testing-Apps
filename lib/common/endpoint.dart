@@ -29,6 +29,28 @@ class Endpoint {
       },
     );
   }
+  
+  Uri district(String cityID) {
+    return UriHelper.createUrl(
+      host: baseURL,
+      path: "/wilayah/kecamatan",
+      queryParameters: {
+        "api_key": apiKey,
+        "id_kabupaten": cityID,
+      },
+    );
+  }
+ 
+  Uri area(String districtID) {
+    return UriHelper.createUrl(
+      host: baseURL,
+      path: "/wilayah/kelurahan",
+      queryParameters: {
+        "api_key": apiKey,
+        "id_kecamatan": districtID,
+      },
+    );
+  }
 
   factory Endpoint.getRegion() {
     return Endpoint(
