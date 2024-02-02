@@ -2,8 +2,7 @@ import 'package:seru_testing_app/common/http_client.dart';
 
 class Endpoint {
   final String baseURL;
-  final String apiKey =
-      "3c8e3d19b8a4816fc59bcca0ed8c08803310b675b5bd1330a9927b706b33ee7b";
+  final String apiKey = "Get API KEY di BinderByte";
 
   Endpoint({
     required this.baseURL,
@@ -29,7 +28,7 @@ class Endpoint {
       },
     );
   }
-  
+
   Uri district(String cityID) {
     return UriHelper.createUrl(
       host: baseURL,
@@ -40,7 +39,7 @@ class Endpoint {
       },
     );
   }
- 
+
   Uri area(String districtID) {
     return UriHelper.createUrl(
       host: baseURL,
