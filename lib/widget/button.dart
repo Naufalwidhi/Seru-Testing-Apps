@@ -9,7 +9,6 @@ class DefaultButton extends StatelessWidget {
     required this.onPressed,
     this.isLoading = false,
     this.isDisabled = false,
-    this.isBlockSize = true,
     this.outlined = false,
     this.isFullWidth = false,
     this.trailingIcon,
@@ -21,7 +20,6 @@ class DefaultButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final bool isLoading;
   final bool isDisabled;
-  final bool isBlockSize;
   final bool outlined;
   final bool isFullWidth;
   final Widget? trailingIcon;
@@ -30,27 +28,9 @@ class DefaultButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
+      
       style: ElevatedButton.styleFrom(
-        fixedSize: (isBlockSize)
-            ? Size(
-                MediaQuery.of(context).size.width - (isFullWidth ? 0 : 48),
-                50.0,
-              )
-            : null,
-        minimumSize: const Size(40, 40),
-        primary:
-            (outlined) ? Colors.white : Theme.of(context).colorScheme.secondary,
-        onPrimary:
-            (outlined) ? Theme.of(context).colorScheme.secondary : Colors.white,
-        side: needBorderSide
-            ? BorderSide(
-                color: Theme.of(context).colorScheme.secondary,
-                width: 1,
-              )
-            : const BorderSide(
-                color: Colors.transparent,
-                width: 0,
-              ),
+        backgroundColor: Colors.blueGrey,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5.0),
         ),
@@ -75,10 +55,8 @@ class DefaultButton extends StatelessWidget {
                 ),
               ],
             )
-          : DefaultCircularProgress(
-              color: (outlined)
-                  ? Theme.of(context).colorScheme.primary
-                  : Colors.white,
+          : const DefaultCircularProgress(
+              color: Colors.white,
             ),
     );
   }
